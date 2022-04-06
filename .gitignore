@@ -70,6 +70,7 @@ node_modules
 /bots/node_modules/
 package-lock.json
 yarn.lock
+.expo
 
 # OS X
 .DS_Store
