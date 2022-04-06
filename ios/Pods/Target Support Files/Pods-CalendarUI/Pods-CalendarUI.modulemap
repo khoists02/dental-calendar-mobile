@@ -1,0 +1,6 @@
+module Pods_CalendarUI {
+  umbrella header "Pods-CalendarUI-umbrella.h"
+
+  export *
+  module * { export * }
+}
