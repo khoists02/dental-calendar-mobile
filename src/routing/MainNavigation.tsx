@@ -10,12 +10,9 @@ import { useDispatch } from "react-redux";
 import { getUser } from "../redux/operations/login.operation";
 import { AsyncStorage } from "react-native";
 import { LoginAction } from "../redux/reducers/login";
-import AppLoadingScreen from "../screens/AppLoadingScreen";
 
 const MainNavigation = (): React.ReactElement => {
-  const { isAuthenticated, fetchingSession } = useReduxSelector(
-    (state) => state.login
-  );
+  const { isAuthenticated } = useReduxSelector((state) => state.login);
   const dispatch = useDispatch();
   useEffect(() => {
     AsyncStorage.getItem("accessToken").then((val: string) => {
