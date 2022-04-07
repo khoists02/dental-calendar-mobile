@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { Image, KeyboardAvoidingView, ScrollView } from "react-native";
-import { useDispatch } from "react-redux";
-import { UserAction } from "../../redux/reducers/user";
 import { LoginProps } from "../../routing/props";
 import { MainRoutes } from "../../routing/routes";
 import { Input, Button } from "../../components";
 import { Color } from "../../theme/color";
+import { useDispatch } from "react-redux";
+import { submitLogin } from "../../redux/operations/login.operation";
+import { RootState, useReduxSelector } from "../../redux";
 
 const LoginScreen = ({ navigation }: LoginProps) => {
-  const dispatch = useDispatch();
   const logo = require("../../assets/images/logo.png");
-
+  const dispatch = useDispatch();
   const [email, setEmail] = useState<string>("khoi.kioto@gmail.com");
-  const [password, setPassword] = useState<string>("");
+  const [password, setPassword] = useState<string>("minhkhoi9");
+  const { fetchingSession } = useReduxSelector(
+    (state: RootState) => state.login
+  );
 
   return (
     <KeyboardAvoidingView
@@ -47,10 +50,14 @@ const LoginScreen = ({ navigation }: LoginProps) => {
         <Button
           title="Login"
           onHandlePress={() => {
-            if (email === "khoi.kioto@gmail.com" && password === "123123") {
-              dispatch(UserAction.setLogin(true));
-            }
+            dispatch(
+              submitLogin({
+                email,
+                password,
+              })
+            );
           }}
+          loading={fetchingSession}
           type={"border"}
         />
         <Button

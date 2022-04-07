@@ -1,6 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+// import Toast from "react-native-toast-message";
 import { ThemeProvider } from "react-native-elements";
 import { StatusBar } from "expo-status-bar";
 import store from "./redux";
@@ -27,6 +28,14 @@ const App = () => {
     <SafeAreaProvider>
       <ThemeProvider theme={theme}>
         <Provider store={store}>
+          {/* {errors.length > 0 && (
+            <>
+              {Toast.show({
+                type: "info",
+                text1: "This is an info message",
+              })}
+            </>
+          )} */}
           <StatusBar hidden />
           <MainNavigation></MainNavigation>
         </Provider>

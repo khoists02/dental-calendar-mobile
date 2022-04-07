@@ -7,6 +7,7 @@ export enum MainRoutes {
   Login = "Login",
   Register = "Register",
   TestComponent = "TestComponent",
+  AppLoading = "AppLoading",
 }
 
 export type MainStackParamList = {
@@ -15,6 +16,7 @@ export type MainStackParamList = {
   [MainRoutes.Login]: undefined;
   [MainRoutes.Register]: undefined;
   [MainRoutes.TestComponent]: undefined;
+  [MainRoutes.AppLoading]: undefined;
 };
 
 export enum HomeRoutes {

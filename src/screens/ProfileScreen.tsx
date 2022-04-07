@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 import { useDispatch } from "react-redux";
-import { UserAction } from "../redux/reducers/user";
+import { logout } from "../redux/operations/login.operation";
 
 const ProfileScreen = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,9 @@ const ProfileScreen = () => {
 
       <Button
         title="Logout"
-        onPress={() => dispatch(UserAction.setLogin(false))}
+        onPress={() => {
+          dispatch(logout());
+        }}
       />
     </View>
   );
