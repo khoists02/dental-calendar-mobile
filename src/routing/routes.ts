@@ -5,6 +5,7 @@ export enum MainRoutes {
   Main = "Main",
   Splash = "Splash",
   Login = "Login",
+  Register = "Register",
   TestComponent = "TestComponent",
 }
 
@@ -12,6 +13,7 @@ export type MainStackParamList = {
   [MainRoutes.Main]: { update: boolean } | undefined; // just an example, "update" will later be used for version checks
   [MainRoutes.Splash]: undefined;
   [MainRoutes.Login]: undefined;
+  [MainRoutes.Register]: undefined;
   [MainRoutes.TestComponent]: undefined;
 };
 

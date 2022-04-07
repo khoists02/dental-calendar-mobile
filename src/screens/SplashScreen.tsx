@@ -54,13 +54,19 @@ const SplashScreen = ({ navigation }: SplashProps) => {
           justifyContent: "center",
         }}
       >
-        <Image source={logo} />
+        <Image
+          source={logo}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        />
         <Text
           style={{
             textAlign: "right",
             width: "100%",
             paddingRight: 100,
-            marginTop: 10,
             color: "#ffffff",
           }}
         >

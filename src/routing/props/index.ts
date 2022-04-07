@@ -16,6 +16,11 @@ export type LoginProps = NativeStackScreenProps<
   MainRoutes.Login
 >;
 
+export type RegisterProps = NativeStackScreenProps<
+  MainStackParamList,
+  MainRoutes.Register
+>;
+
 export type HomeProps = NativeStackScreenProps<
   HomeStackParamList,
   HomeRoutes.Home
