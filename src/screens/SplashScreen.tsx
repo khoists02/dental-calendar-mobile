@@ -7,6 +7,7 @@ import {
   Image,
   View,
 } from "react-native";
+import { Logo } from "../components";
 import { SplashProps } from "../routing/props";
 import { MainRoutes } from "../routing/routes";
 import { Color } from "../theme/color";
@@ -42,7 +43,6 @@ const styles = StyleSheet.create({
 });
 
 const SplashScreen = ({ navigation }: SplashProps) => {
-  const logo = require("../assets/images/logo.png");
   return (
     <SafeAreaView style={styles.page}>
       <View
@@ -54,24 +54,7 @@ const SplashScreen = ({ navigation }: SplashProps) => {
           justifyContent: "center",
         }}
       >
-        <Image
-          source={logo}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        />
-        <Text
-          style={{
-            textAlign: "right",
-            width: "100%",
-            paddingRight: 100,
-            color: "#ffffff",
-          }}
-        >
-          Make your smiles
-        </Text>
+        <Logo />
       </View>
       <View style={{ flex: 3, display: "flex", alignItems: "center" }}>
         <TouchableOpacity
@@ -79,7 +62,7 @@ const SplashScreen = ({ navigation }: SplashProps) => {
           style={Button.buttonOutline}
         >
           <Text style={{ ...TextStyle.colorPrimary, ...TextStyle.fontH1 }}>
-            I have an account
+            SignIn
           </Text>
         </TouchableOpacity>
       </View>

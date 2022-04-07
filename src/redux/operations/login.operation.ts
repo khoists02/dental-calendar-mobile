@@ -12,6 +12,7 @@ export const getUser = (): AppThunk => async (dispatch) => {
     );
     dispatch(LoginAction.getUserSuccess(userResponse.data));
   } catch (err) {
+    dispatch(LoginAction.loginFail());
     dispatch(ErrorAction.setError([err]));
   }
 };
@@ -36,6 +37,7 @@ export const submitLogin =
       );
       dispatch(LoginAction.loginSuccess(data.data.accessToken));
     } catch (err) {
+      dispatch(LoginAction.loginFail());
       dispatch(ErrorAction.setError([err]));
     }
   };

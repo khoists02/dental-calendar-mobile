@@ -59,7 +59,7 @@ const InputForm = (props: IInputForm) => {
   useEffect(() => {
     if (keyboardStatus && required && !value) {
       if (keyboardStatus === "hidden") {
-        setError("This Field is required.");
+        setError(`The ${label} is required.`);
       } else if (keyboardStatus === "show") {
         setError(undefined);
       }
@@ -76,9 +76,10 @@ const InputForm = (props: IInputForm) => {
         onChangeText={(val) => {
           onChange(val);
         }}
+        autoCapitalize="none"
         placeholder={placeholder}
         autoCompleteType={false}
-        errorStyle={{ marginBottom: 10 }}
+        errorStyle={{ marginBottom: 10, fontSize: 14 }}
         value={value}
         onSubmitEditing={Keyboard.dismiss}
         errorMessage={error}

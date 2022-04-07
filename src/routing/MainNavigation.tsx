@@ -22,7 +22,10 @@ const MainNavigation = (): React.ReactElement => {
   }, [dispatch]);
   return (
     <NavigationContainer>
-      <MainStack.Navigator screenOptions={{ headerShown: false }}>
+      <MainStack.Navigator
+        initialRouteName={MainRoutes.Login}
+        screenOptions={{ headerShown: false }}
+      >
         {isAuthenticated ? (
           <>
             <MainStack.Screen
