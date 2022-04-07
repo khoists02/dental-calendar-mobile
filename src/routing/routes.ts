@@ -1,17 +1,22 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 export enum MainRoutes {
   Main = "Main",
   Splash = "Splash",
   Login = "Login",
+  Register = "Register",
+  TestComponent = "TestComponent",
+  AppLoading = "AppLoading",
 }
 
 export type MainStackParamList = {
   [MainRoutes.Main]: { update: boolean } | undefined; // just an example, "update" will later be used for version checks
   [MainRoutes.Splash]: undefined;
   [MainRoutes.Login]: undefined;
+  [MainRoutes.Register]: undefined;
+  [MainRoutes.TestComponent]: undefined;
+  [MainRoutes.AppLoading]: undefined;
 };
 
 export enum HomeRoutes {
