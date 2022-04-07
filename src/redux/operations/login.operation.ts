@@ -19,7 +19,7 @@ export const getUser = (): AppThunk => async (dispatch) => {
 
 export const logout = (): AppThunk => async (dispatch: AppDispatch) => {
   try {
-    await axios.delete(`http://192.168.1.5:1337/api/sessions`);
+    await axios.post(`http://192.168.1.5:1337/api/logout`);
     dispatch(LoginAction.clearSession());
   } catch (err) {
     dispatch(ErrorAction.setError([err]));

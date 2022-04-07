@@ -19,7 +19,6 @@ const ButtonCops = ({
   disabled = false,
 }: IButtonCops) => {
   const getTitle: JSX.Element = useMemo(() => {
-    console.log({ loading });
     return (
       <>
         <Text
