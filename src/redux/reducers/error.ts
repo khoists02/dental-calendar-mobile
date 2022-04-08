@@ -23,6 +23,9 @@ const errorSlice = createSlice({
     setError(state, action: PayloadAction<any>) {
       state.errors = action.payload || [];
     },
+    clearError(state) {
+      state.errors = [];
+    },
   },
 });
 

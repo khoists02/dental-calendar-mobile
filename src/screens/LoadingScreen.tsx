@@ -1,40 +1,21 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Image, View } from "react-native";
-import { Color } from "../theme/color";
-
-const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-    backgroundColor: Color.screenBackground,
-    alignItems: "center",
-    paddingLeft: 20,
-    paddingRight: 20,
-  },
-});
+import { ActivityIndicator } from "react-native";
 
 const LoadingScreen = () => {
-  const logo = require("../assets/images/logo.png");
   return (
-    <SafeAreaView style={styles.page}>
-      <View
-        style={{
-          flex: 3,
-          width: "100%",
-          alignItems: "center",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Image
-          source={logo}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        />
-      </View>
-    </SafeAreaView>
+    <ActivityIndicator
+      color={"#fff"}
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "#333",
+        opacity: 0.3,
+        zIndex: 9999,
+      }}
+    />
   );
 };
 

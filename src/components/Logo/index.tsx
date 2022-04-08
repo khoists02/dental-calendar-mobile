@@ -12,8 +12,8 @@ const Logo = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 100,
-        marginBottom: 100,
+        marginTop: 50,
+        marginBottom: 50,
       }}
     >
       <Image source={logo} style={{ width: "100%" }} />

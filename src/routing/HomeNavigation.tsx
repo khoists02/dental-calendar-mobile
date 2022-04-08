@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { HomeStack, HomeRoutes } from "./routes";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -7,8 +7,14 @@ import SettingsScreen from "../screens/SettingsScreen";
 import CalendarScreen from "../screens/CalendarScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import { Color } from "../theme/color";
+import { useDispatch } from "react-redux";
+import { getUser } from "../redux/operations/login.operation";
 
 const HomeNavigation = (): React.ReactElement => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
   const getIconName = (routeName: string, focused: boolean) => {
     let iconName;
 

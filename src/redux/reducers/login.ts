@@ -1,12 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AsyncStorage } from "react-native";
 import { IUser } from "../../types/user";
+import {
+  storageGetItem,
+  storageDeleteItem,
+  storageSetItem,
+} from "../../utils/storage";
 
 type LoginState = {
   token: string | undefined;
   fetchingSession: boolean;
   isAuthenticated: boolean;
   user: IUser | undefined;
+  loading: boolean;
+  registerActon: "back" | "state";
 };
 
 const initialState: LoginState = {
@@ -14,6 +20,8 @@ const initialState: LoginState = {
   fetchingSession: false,
   isAuthenticated: false,
   user: undefined,
+  loading: false,
+  registerActon: "state",
 };
 
 const loginSlice = createSlice({
@@ -25,12 +33,9 @@ const loginSlice = createSlice({
     },
     loginSuccess(state, action: PayloadAction<string>) {
       state.token = action.payload;
-      AsyncStorage.setItem("accessToken", action.payload);
+      storageSetItem("accessToken", action.payload);
       state.fetchingSession = false;
       state.isAuthenticated = true;
-    },
-    setToken(state, action: PayloadAction<string>) {
-      state.token = action.payload;
     },
     loginFail(state) {
       state.fetchingSession = false;
@@ -40,12 +45,31 @@ const loginSlice = createSlice({
       state.user = action.payload;
       state.isAuthenticated = true;
       state.fetchingSession = false;
+      storageSetItem("email", action.payload.email);
+      storageSetItem("name", action.payload.name);
     },
     clearSession(state) {
       state.isAuthenticated = false;
       state.user = undefined;
       state.token = undefined;
-      AsyncStorage.clear();
+      storageDeleteItem("accessToken");
+    },
+    startRegister(state) {
+      state.loading = true;
+    },
+    registerSuccess(state) {
+      state.loading = false;
+      state.registerActon = "back";
+      storageDeleteItem("email");
+      storageDeleteItem("name");
+    },
+    registerFail(state) {
+      state.loading = false;
+      state.registerActon = "state";
+    },
+    clearRegisterState(state) {
+      state.loading = false;
+      state.registerActon = "state";
     },
   },
 });

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { Text } from "react-native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { MainStack, MainRoutes } from "./routes";
 import SplashScreen from "../screens/SplashScreen";
 import LoginScreen from "../screens/login/LoginScreen";
@@ -8,16 +9,12 @@ import { useReduxSelector } from "../redux";
 import RegisterScreen from "../screens/login/RegisterScreen";
 import { useDispatch } from "react-redux";
 import { getUser } from "../redux/operations/login.operation";
-import { AsyncStorage } from "react-native";
-import { LoginAction } from "../redux/reducers/login";
 
 const MainNavigation = (): React.ReactElement => {
   const { isAuthenticated } = useReduxSelector((state) => state.login);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    AsyncStorage.getItem("accessToken").then((val: string) => {
-      dispatch(LoginAction.setToken(val));
-    });
     dispatch(getUser());
   }, [dispatch]);
   return (

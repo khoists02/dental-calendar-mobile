@@ -10,6 +10,13 @@ export interface IUser extends Entity {
   avatar?: string;
 }
 
+export interface IUserRegister {
+  email: string;
+  name: string;
+  confirmPassword: string;
+  password: string;
+}
+
 export interface ILogin {
   email: string;
   password: string;

@@ -28,14 +28,6 @@ const App = () => {
     <SafeAreaProvider>
       <ThemeProvider theme={theme}>
         <Provider store={store}>
-          {/* {errors.length > 0 && (
-            <>
-              {Toast.show({
-                type: "info",
-                text1: "This is an info message",
-              })}
-            </>
-          )} */}
           <StatusBar hidden />
           <MainNavigation></MainNavigation>
         </Provider>

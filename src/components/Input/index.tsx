@@ -13,22 +13,6 @@ interface IInputForm {
   required?: boolean;
 }
 
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 36,
-  },
-  input: {
-    padding: 10,
-    borderWidth: 0.5,
-    borderRadius: 4,
-  },
-  status: {
-    padding: 10,
-    textAlign: "center",
-  },
-});
-
 const InputForm = (props: IInputForm) => {
   const {
     label,
@@ -84,8 +68,9 @@ const InputForm = (props: IInputForm) => {
         onSubmitEditing={Keyboard.dismiss}
         errorMessage={error}
         inputStyle={{ color: "#ffffff", fontSize: 15, flex: 1 }}
+        clearButtonMode="always"
         inputContainerStyle={{
-          borderColor: Color.primary,
+          borderColor: "#6dd7d7",
           borderWidth: 1,
           borderRadius: 3,
           paddingLeft: 10,

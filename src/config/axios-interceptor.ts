@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import { ErrorAction, ErrorMessage } from "../redux/reducers/error";
+import { storageGetItem } from "../utils/storage";
 
 interface CustomAxiosRequestConfig extends AxiosRequestConfig {
   _retry: boolean;
@@ -14,9 +15,14 @@ axios.defaults.timeout = TIMEOUT;
 
 axios.defaults.withCredentials = true;
 
+const getToken = async () => {
+  const token = await storageGetItem("accessToken");
+  return token;
+};
+
 const setupAxiosInterceptors = (store: any): void => {
   const onRequestSuccess = (config: AxiosRequestConfig) => {
-    const token = store.getState().login?.token;
+    const token = store.getState().login?.token || getToken();
     if (token) {
       // tslint:disable-next-line: no-string-literal
       config.headers["Authorization"] = `Bearer ${token}`;

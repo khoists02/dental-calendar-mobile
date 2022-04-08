@@ -54,8 +54,8 @@ const ButtonCops = ({
           borderColor: type === "border" ? Color.primary : "#2cc4c4",
           borderRadius: 5,
           backgroundColor: type === "border" ? Color.primary : "#27c3c2",
-          paddingTop: 15,
-          paddingBottom: 15,
+          paddingTop: 10,
+          paddingBottom: 10,
         }}
         titleStyle={{ color: "#ffffff", fontSize: 18, fontWeight: "600" }}
         title={getTitle}
